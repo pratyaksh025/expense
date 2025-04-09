@@ -99,6 +99,7 @@ def graphical_view():
     ax3.set_ylabel("Amount")
     ax3.grid(True)
     fig3.autofmt_xdate()  # Automatically format date labels for better readability
+    ax3.xaxis.set_major_formatter(plt.matplotlib.dates.DateFormatter('%d-%m-%Y'))  # Format x-axis as day-month-year
     st.pyplot(fig3)
 
 def clear_expenses():
