@@ -93,7 +93,7 @@ def graphical_view():
     sorted_amounts = [a for _, a in sorted_data]
 
     fig3, ax3 = plt.subplots()
-    ax3.plot(sorted_dates[0:5], sorted_amounts, marker='o', linestyle='-', color='green')
+    ax3.plot(sorted_dates, sorted_amounts, marker='o', linestyle='-', color='green')
     ax3.set_title("Expenses Over Time")
     ax3.set_xlabel("Date")
     ax3.set_ylabel("Amount")
