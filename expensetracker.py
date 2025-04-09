@@ -13,6 +13,15 @@ if not os.path.exists(FILENAME):
         writer = csv.writer(file)
         writer.writerow(["Date", "Category", "Amount", "Note"])
 
+def hide_menu():
+    st.markdown("""
+        <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        </style>
+        """, unsafe_allow_html=True)
+
 def add_expense():
     st.subheader("Add Expense")
     date = st.date_input("📅 Enter date")
@@ -109,6 +118,7 @@ def clear_expenses():
     st.success("✅ All expenses cleared!")
 
 def main():
+    hide_menu()
     st.title("📘 Expense Tracker")
     menu = ["-select-", "Add Expense", "View Expenses", "Graphical View", "Exit"]
     choice = st.selectbox("Select an option", menu)
