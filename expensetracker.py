@@ -67,7 +67,7 @@ def graphical_view():
                 # st.write(f"📅 {date_str} | 🗂️ {category} | 💸 ₹{amount} | 📝 {note}")
 
                 # Accumulate for plots
-                dates.append(datetime.strptime(date_str, "%Y-%m-%d"))
+                dates.append(datetime.strptime(date_str, r"%Y-%m-%d"))
                 amounts.append(amount)
                 categories.append(category)
                 category_totals[category] += amount
@@ -92,12 +92,13 @@ def graphical_view():
     sorted_dates = [d for d, _ in sorted_data]
     sorted_amounts = [a for _, a in sorted_data]
 
-    fig3, ax3 = plt.subplots()
+    fig3, ax3 = plt.subplots(figsize=(12, 6))  # Increase figure size
     ax3.plot(sorted_dates, sorted_amounts, marker='o', linestyle='-', color='green')
     ax3.set_title("Expenses Over Time")
     ax3.set_xlabel("Date")
     ax3.set_ylabel("Amount")
     ax3.grid(True)
+    fig3.autofmt_xdate()  # Automatically format date labels for better readability
     st.pyplot(fig3)
 
 def clear_expenses():
